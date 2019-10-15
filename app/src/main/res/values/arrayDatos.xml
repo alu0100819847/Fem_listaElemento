@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <array name="datos">
+        <item>Mahou Verde</item>
+        <item>Mahou Roja</item>
+        <item>Maestra</item>
+        <item>Estrella Galicia</item>
+        <item>Alhambra</item>
+    </array>
+</resources>

@@ -10,20 +10,16 @@ public class MainActivity extends AppCompatActivity {
 
     static final String TAG_MIW = "MiW";
 
-    static final String[] misDatos = {
-            "Mahou", "Maestra", "Estrella Galicia",
-            "Texto 03", "Texto 04", "Texto 05",
-            "Texto 06", "Texto 07", "Texto 08",
-            "Texto 09", "Texto 10", "Texto 11",
-            "Texto 12", "Texto 13", "Texto 04"
-    };
-
+    private String[] misDatos;
     private ListView lvListado;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        // obtener Datos
+        misDatos = getResources().getStringArray(R.array.datos);
 
         // asociar recurso a la vista
         lvListado = findViewById(R.id.lvListadoElementos);
