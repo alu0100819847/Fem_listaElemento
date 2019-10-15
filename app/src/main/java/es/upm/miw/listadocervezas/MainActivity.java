@@ -30,13 +30,9 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         lvListado = findViewById(R.id.lvListadoElementos);
 
         // Crear adaptador a partir de datos
-        ArrayAdapter<String> adaptador = new ArrayAdapter<>(
-                this,
-                android.R.layout.simple_list_item_1,
-                misDatos
-        );
+        MiAdaptador miAdaptador = new MiAdaptador(this, R.layout.item_lista, misDatos);
 
-        lvListado.setAdapter(adaptador);
+        lvListado.setAdapter(miAdaptador);
         lvListado.setOnItemClickListener(this);
     }
 
