@@ -51,7 +51,7 @@ public class MiAdaptador extends ArrayAdapter {
         TextView tvLinea2 = vista.findViewById(R.id.tvItemLinea2);
         ImageView imgItem = vista.findViewById(R.id.imgItem);
 
-        tvLinea1.setText("Posición = " + position);
+        tvLinea1.setText(contexto.getString(R.string.txtPosicion) + position);
         tvLinea2.setText(misDatos[position]);
         imgItem.setImageResource(
                 (position % 2 == 0)

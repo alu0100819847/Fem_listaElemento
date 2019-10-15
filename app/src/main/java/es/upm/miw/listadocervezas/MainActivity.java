@@ -2,18 +2,19 @@ package es.upm.miw.listadocervezas;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.ListView;
-
-import com.google.android.material.snackbar.Snackbar;
 
 public class MainActivity extends AppCompatActivity implements AdapterView.OnItemClickListener {
 
     static final String TAG_MIW = "MiW";
+
+    static final String CLAVE_POSICION = "CLAVE_POSICION";
+    static final String CLAVE_ITEM = "CLAVE_ITEM";
 
     private String[] misDatos;
     private ListView lvListado;
@@ -51,9 +52,16 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
      */
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-        String texto = "Opción elegida (posicion=" + position + ", id=" + id + "): " + parent.getItemAtPosition((int) id).toString();
+        String texto = "Opción elegida (posicion=" + position + ", id=" + id + "): " + misDatos[position];
 
         Log.i(TAG_MIW, texto);
-        Snackbar.make(parent, texto, Snackbar.LENGTH_LONG).show();
+
+        Bundle bundle = new Bundle();
+        bundle.putInt(CLAVE_POSICION, position);
+        bundle.putString(CLAVE_ITEM, misDatos[position]);
+
+        Intent intent = new Intent(getApplicationContext(), DetalleItem.class);
+        intent.putExtras(bundle);
+        startActivity(intent);
     }
 }

@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">ListadoCervezas</string>
+    <string name="title_activity_detalle_item">DetalleItem</string>
+    <string name="txtPosicion">"Posición = "</string>
 </resources>

@@ -20,5 +20,16 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <activity
+            android:name=".DetalleItem"
+            android:label="@string/title_activity_detalle_item"
+            android:parentActivityName=".MainActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="es.upm.miw.listadocervezas.MainActivity" />
+        </activity>
     </application>
+
 </manifest>
