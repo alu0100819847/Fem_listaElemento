@@ -5,6 +5,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -35,16 +37,27 @@ public class MiAdaptador extends ArrayAdapter {
     @NonNull
     @Override
     public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
-        TextView vista;
+        LinearLayout vista;
 
         if (null != convertView) {
-            vista = (TextView) convertView;
+            vista = (LinearLayout) convertView;
         } else {
             LayoutInflater inflador = (LayoutInflater) contexto.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-            vista = (TextView) inflador.inflate(idLayout, parent, false);
+            vista = (LinearLayout) inflador.inflate(idLayout, parent, false);
         }
 
-        vista.setText(misDatos[position]);
+        // Asignar contenido a los elementos de la vista
+        TextView tvLinea1 = vista.findViewById(R.id.tvItemLinea1);
+        TextView tvLinea2 = vista.findViewById(R.id.tvItemLinea2);
+        ImageView imgItem = vista.findViewById(R.id.imgItem);
+
+        tvLinea1.setText("Posición = " + position);
+        tvLinea2.setText(misDatos[position]);
+        imgItem.setImageResource(
+                (position % 2 == 0)
+                    ? R.mipmap.miw_launcher
+                    : R.mipmap.miw_launcher_rounded
+        );
 
         return vista;
     }
